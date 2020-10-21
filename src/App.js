@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Cards from './components/cards.js';
+import Carrinho from './components/carrinho.js';
+import Filtro from './components/filtro.js';
+import styled from 'styled-components';
+
+const ProdutoWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  border: 1px solid black;
+  `
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ProdutoWrapper>
+        <Filtro/>
+        <Cards/>
+        <Carrinho/>
+      </ProdutoWrapper>
     </div>
   );
 }
