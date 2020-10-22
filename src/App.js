@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import camiseta1 from './img/camiseta-cat-galaxy.jpg';
 import camiseta2 from './img/camiseta-dog-space.jpg';
 import camiseta3 from './img/camiseta-espaco.jpg';
-import camiseta4 from './img/camiseta-espaco-2.png';
+import camiseta4 from './img/camiseta-espaco-2.jpg';
 import camiseta5 from './img/camiseta-naza-meme.jpg'
 
 
