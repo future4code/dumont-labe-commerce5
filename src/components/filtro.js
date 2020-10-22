@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 
 
 class Filtro extends React.Component {
