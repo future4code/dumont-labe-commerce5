@@ -1,28 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Card = styled.div`
+const ContainerProduto = styled.div`
 display: grid;
 grid-template-columns: repeat(4, 1fr);
 `
-const ImagensProdutos = styled.img`
+const ImagemProduto = styled.img`
 max-width: 50%;
 `
 const ButtonCarrinho = styled.button`
 width: 50px;
 `
 
+const InfoProduto = styled.div`
+display: flex;
+flex-direction:column;
+`
+
 class CardProduto extends React.Component {
+    addCarrinho = () => {
+    }
+
     render() {
-        const Produto = this.props.produto
+        const produto = this.props.produto
 
         return (
-            <Card>
-                <ImagensProdutos/>
-                <p>{Produto.name}</p>
-                <p>R${Produto.value}</p>
-                <ButtonCarrinho>Adicionar ao Carrinho</ButtonCarrinho>
-            </Card>
+            <ContainerProduto>
+            <ImagemProduto src={produto.imgUrl} />
+            <InfoProduto>
+                <p>{produto.nome}</p>
+                <p>R$ {produto.preco}</p>
+                <ButtonCarrinho>Adicionar ao carrinho</ButtonCarrinho>
+            </InfoProduto>
+        </ContainerProduto>
         )
     }
 }
