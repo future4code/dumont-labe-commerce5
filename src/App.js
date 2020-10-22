@@ -1,16 +1,7 @@
 import React from 'react';
-import Cards from './components/Produtos/cards.js';
 import Carrinho from './components/carrinho.js';
 import Filtro from './components/filtro.js';
 import styled from 'styled-components';
-import camiseta1 from './img/camiseta-cat-galaxy.jpg';
-import camiseta2 from './img/camiseta-dog-space.jpg';
-import camiseta3 from './img/camiseta-espaco.jpg';
-import camiseta4 from './img/camiseta-espaco-2.jpg';
-import camiseta5 from './img/camiseta-naza-meme.jpg';
-import camiseta6 from './img/camiseta-nasa-1.jpg';
-import camiseta7 from './img/camiseta-star-wars-1.jpg';
-import camiseta8 from './img/camiseta-et-1.jpg';
 import CardProduto from './components/Produtos/cards.js';
 
 
@@ -23,49 +14,49 @@ const Wrapper = styled.div`
 const Produtos = [
   {
     id: 1,
-    img: { camiseta1 },
-    name: 'Produto 1',
+    img: 'https://i.ibb.co/jWBSVYz/camiseta-star-wars-1.jpg',
+    name: 'Camiseta Star Wars',
     value: 50
   },
   {
     id: 2,
-    img: { camiseta2 },
+    img: 'https://i.ibb.co/Q8ZG3jN/camiseta-naza-meme.jpg',
     name: 'Produto 2',
     value: 50
   },
   {
     id: 3,
-    img: { camiseta3 },
+    img: 'https://i.ibb.co/v3t36dK/camiseta-nasa-1.jpg',
     name: 'Produto 3',
     value: 50
   },
   {
     id: 4,
-    img: { camiseta4 },
+    img: 'https://i.ibb.co/gmZ13qQ/camiseta-et-1.jpg',
     name: 'Produto 4',
     value: 50
   },
   {
     id: 5,
-    img: { camiseta5 },
+    img: 'https://i.ibb.co/M6B4SYR/camiseta-espaco-2.jpg',
     name: 'Produto 5',
     value: 50
   },
   {
     id: 6,
-    img: { camiseta6 },
+    img: 'https://i.ibb.co/G9Wr6TK/camiseta-espaco.jpg',
     name: 'Produto 6',
     value: 50
   },
   {
     id: 7,
-    img: { camiseta7 },
+    img: 'https://i.ibb.co/hXK2krh/camiseta-dog-space.jpg',
     name: 'Produto 7',
     value: 50
   },
   {
     id: 8,
-    img: { camiseta8 },
+    img: 'https://i.ibb.co/7v7GxDs/camiseta-cat-galaxy.jpg',
     name: 'Produto 8',
     value: 50
   },
