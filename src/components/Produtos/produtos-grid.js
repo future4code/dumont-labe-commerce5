@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ProdutosHeader = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 0 10px;
 `;
 
