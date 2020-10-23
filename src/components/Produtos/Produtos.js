@@ -58,8 +58,4 @@ export default class Produtos extends React.Component {
       </ProdutosContainer>
     );
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master
