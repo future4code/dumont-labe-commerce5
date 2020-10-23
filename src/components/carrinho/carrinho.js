@@ -14,26 +14,28 @@ const ListaProdutosContainer = styled.div`
 export default class Carrinho extends React.Component {
 
    //Para somar o total de itens no carrinho
-  // valorTotalCompras = () => {
-  //   let valorTotal = 0;
+  valorTotalCompras = () => {
+    let valorTotal = 0;
 
-  //   for (let produto of this.props.produtosNoCarrinho) {
-  //     valorTotal += produto.preco * produto.quantidade;
-  //   }
-  //   return valorTotal;
-  // };
+    for (let produto of this.props.produtosNoCarrinho) {
+      valorTotal += produto.preco * produto.quantidade;
+    }
+    return valorTotal;
+  };
 
   render() {
     return (
       <CarrinhoContainer>
         <h3>Carrinho:</h3>
         <ListaProdutosContainer>
-           {/* {this.props.produtosNoCarrinho.map((produto) => {
-            return <ItensCarrinho cardItem={produto} removerProduto={this.props.removerProduto}/>
-          })}  */}
+           {this.props.produtosNoCarrinho.map((produto) => {
+            return <ItensCarrinho 
+                    cartItem={produto} 
+                    onRemoverProdutosdoCarrinho={this.props.onRemoverProdutosdoCarrinho}
+                    />
+          })} 
           <ItensCarrinho />
-          {/* <p>Valor total: R${this.valorTotalCompras()}</p>
-          <p>Valor total:</p> */}
+          <p>Valor total: R${this.valorTotalCompras()}</p>
         </ListaProdutosContainer>
       </CarrinhoContainer>
     );

@@ -108,6 +108,19 @@ export default class App extends React.Component {
   }
 }
 
+  onRemoverProdutosdoCarrinho = (idProduto) => {
+    const novosProdutosNoCarrinho = this.state.produtosNoCarrinho.map((produto) => {
+      if(produto.id ===  idProduto) {
+        return {
+          ...produto,
+          quantidade: produto.quantidade -1
+        }
+      }
+      return produto
+    }).filter((produto)=> produto.quantidade >0)
+    this.setState({produtosNoCarrinho: novosProdutosNoCarrinho})
+  }
+
   render() {
     return (
       <AppContainer>
@@ -128,6 +141,7 @@ export default class App extends React.Component {
         />
         <Carrinho
           produtosNoCarrinho={this.state.produtosNoCarrinho}
+          onRemoverProdutosdoCarrinho={this.onRemoverProdutosdoCarrinho}
         />
       </AppContainer>
     );
