@@ -23,4 +23,4 @@ class ItensCarrinho extends React.Component {
     );
   }
 }
-export default CarrinhoItem;
+export default ItensCarrinho;
