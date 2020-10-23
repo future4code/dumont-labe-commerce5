@@ -22,7 +22,7 @@ export default class ItensCarrinho extends React.Component {
         <p>{this.props.cartItem.quantidade}x</p>
         <p>{this.props.cartItem.nome}</p>
         <RemoverButton onClick={() => 
-          this.props.onRemoveProduct(this.props.cartItem.id)}>
+          this.props.onRemoverProdutosdoCarrinho(this.props.cartItem.id)}>
             Remover
         </RemoverButton>
       </ItemContainer>
