@@ -1,5 +1,5 @@
 import React from "react";
-import Filtro from "./components/Filtro/filtro";
+import Filtro from "./components/Filtro/Filtro";
 import Produtos from "./components/Produtos/Produtos"
 import Carrinho from "./components/carrinho";
 import styled from 'styled-components';
@@ -67,7 +67,22 @@ export default class App extends React.Component {
     filtroMinimo: "",
     filtroMaximo: "",
     filtroBuscar: "",
-    produtosNoCarrinho: ""
+    produtosNoCarrinho: [
+      {
+      id: 4,
+      img: "https://i.ibb.co/gmZ13qQ/camiseta-et-1.jpg",
+      nome: "Produto 4",
+      preco: 50,
+      quantidade: 1
+    },
+    {
+      id: 5,
+      img: "https://i.ibb.co/M6B4SYR/camiseta-espaco-2.jpg",
+      nome: "Produto 5",
+      preco: 50,
+      quantidade: 2
+      }
+    ]
   }
 
   onChangeFiltroMinimo = (event) => {
@@ -97,7 +112,7 @@ export default class App extends React.Component {
         return produto;
     })
 
-    this.setState({produtosNoCarrinho: novoProdutoCarrinho})
+    this.setState({produtosNoCarrinho: novosProdutosCarrinho})
   } else {
     const totalProdutoCarrinho = produtos.find(produto => idProduto === produto.id)
 
