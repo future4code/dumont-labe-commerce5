@@ -12,13 +12,18 @@ const InputContainer = styled.label`
   margin-bottom: 8px;
 `;
 
+const Titulo = styled.h3`
+ font-size: 1.5em;
+ text-align: center;
+`
+
 export default class Filtro extends React.Component {
     render(){
         return (
-            <div>
-                <h3>Filtros</h3>
+            <FilterContainer>
+                <Titulo>Filtros</Titulo>
                 <div>
-                    <label>Valor mínimo:</label>
+                    <InputContainer>Valor mínimo:</InputContainer>
                     <input 
                     type="number" 
                     value={this.props.filtroMinimo}
@@ -26,7 +31,7 @@ export default class Filtro extends React.Component {
                     />
                 </div>
                 <div>
-                    <label>Valor máximo:</label>
+                    <InputContainer>Valor máximo:</InputContainer>
                     <input 
                     type="number"
                     value={this.props.filtroMaximo} 
@@ -34,14 +39,14 @@ export default class Filtro extends React.Component {
                     />
                 </div>
                 <div>
-                    <label>Buscar produto:</label>
+                    <InputContainer>Buscar produto:</InputContainer>
                     <input 
                     type="text" 
                     value={this.props.filtroBuscar}
                     onChange={this.props.onChangeFiltroBuscar}
                     />
                 </div>
-            </div>
+            </FilterContainer>
         );
     }
 }
