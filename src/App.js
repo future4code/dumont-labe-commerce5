@@ -1,7 +1,7 @@
 import React from "react";
-import Filtro from "./components/Filtro/Filtro";
+import Filtro from "./components/Filtro/filtro";
 import Produtos from "./components/Produtos/Produtos"
-import Carrinho from "./components/carrinho";
+import Carrinho from "./components/carrinho/carrinho";
 import styled from 'styled-components';
 
 const AppContainer = styled.div`
@@ -116,11 +116,24 @@ export default class App extends React.Component {
   } else {
     const totalProdutoCarrinho = produtos.find(produto => idProduto === produto.id)
 
-    const novosProdutosCarrinho = [...this.state.produtosNoCarrinho, {...this.onAddProdutoCarrinho, quantidade: 1}]
+    const novosProdutosCarrinho = [...this.state.produtosNoCarrinho, {...totalProdutoCarrinho, quantidade: 1}]
 
     this.setState({produtosNoCarrinho: novosProdutosCarrinho})
   }
 }
+
+  onRemoverProdutosdoCarrinho = (idProduto) => {
+    const novosProdutosNoCarrinho = this.state.produtosNoCarrinho.map((produto) => {
+      if(produto.id ===  idProduto) {
+        return {
+          ...produto,
+          quantidade: produto.quantidade -1
+        }
+      }
+      return produto
+    }).filter((produto)=> produto.quantidade >0)
+    this.setState({produtosNoCarrinho: novosProdutosNoCarrinho})
+  }
 
   render() {
     return (
@@ -142,6 +155,7 @@ export default class App extends React.Component {
         />
         <Carrinho
           produtosNoCarrinho={this.state.produtosNoCarrinho}
+          onRemoverProdutosdoCarrinho={this.onRemoverProdutosdoCarrinho}
         />
       </AppContainer>
     );

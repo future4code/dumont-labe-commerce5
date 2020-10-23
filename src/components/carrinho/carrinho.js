@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-
-import ItensCarrinho from "../ItensCarrinho";
+import ItensCarrinho from "./ItensCarrinho";
 
 const CarrinhoContainer = styled.div`
   border: 1px solid black;
@@ -18,7 +17,7 @@ class Carrinho extends React.Component {
   valorTotalCompras = () => {
     let valorTotal = 0;
 
-    for (let produto of this.props.produtosCarrinho) {
+    for (let produto of this.props.produtosNoCarrinho) {
       valorTotal += produto.preco * produto.quantidade;
     }
     return valorTotal;
@@ -29,8 +28,11 @@ class Carrinho extends React.Component {
       <CarrinhoContainer>
         <h3>Carrinho:</h3>
         <ListaProdutosContainer>
-           {this.props.produtosCarrinho.map((produto) => {
-            return <ItensCarrinho cardItem={produto} removerProduto={this.props.removerProduto}/>
+           {this.props.produtosNoCarrinho.map((produto) => {
+            return <ItensCarrinho 
+                    cartItem={produto} 
+                    onRemoverProdutosdoCarrinho={this.props.onRemoverProdutosdoCarrinho}
+                    />
           })} 
           <ItensCarrinho />
           <p>Valor total: R${this.valorTotalCompras()}</p>

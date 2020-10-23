@@ -1,5 +1,5 @@
 import React from "react";
-import { CardProdutos } from "./CardProdutos";
+import CardProdutos from "../Produtos/CardProdutos"
 import styled from "styled-components";
 
 const ProdutosContainer = styled.div`
@@ -24,8 +24,8 @@ export class Produtos extends React.Component {
     return this.props.produtos
       .filter((produto) => produto.preco < this.props.filtroMinimo)
       .filter((produto) => produto.preco > this.props.filtroMaximo)
-      .filter((produto) => produto.nome.includes(this.props.filtroBuscar) < this.props.maxValue)
-      .sort((a, b) => this.state.sort === "CRESCENTE" ? a.produto - b.produto : b.produto - a.produto)
+      .filter((produto) => produto.nome.includes(this.props.filtroBuscar))
+      .sort((a, b) => this.state.sort === "CRESCENTE" ? a.preco - b.preco : b.preco - a.preco)
   }
   onChangeSort = (event) => {
     this.setState({sort: event.target.value})
