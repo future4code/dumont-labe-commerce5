@@ -9,13 +9,13 @@ const ItemContainer = styled.div`
 `;
 
 export default class ItensCarrinho extends React.Component {
-  reder() {
+  render() {
     return (
       <ItemContainer>
-        <p>{this.props.cartItem.quantidade}X</p>
-        <p>{this.props.cartItem.nome}</p>
+        <p>{this.props.produtoNoCarrinho.quantidade}X</p>
+        <p>{this.props.produtoNoCarrinho.nome}</p>
         <button 
-        onClick={() => this.props.onRemoverProdutosdoCarrinho(this.props.cartItem.id)}
+        onClick={() => this.props.onRemoverProdutosdoCarrinho(this.props.produtoNoCarrinho.id)}
         >
           Remover
         </button>

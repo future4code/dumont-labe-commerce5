@@ -17,7 +17,7 @@ export default class Carrinho extends React.Component {
   valorTotalCompras = () => {
     let valorTotal = 0;
 
-    for (let produto of this.props.produtosNoCarrinho) {
+    for (let produto of this.props.produtoNoCarrinho) {
       valorTotal += produto.preco * produto.quantidade;
     }
     return valorTotal;
@@ -30,7 +30,7 @@ export default class Carrinho extends React.Component {
         <ListaProdutosContainer>
            {this.props.produtosNoCarrinho.map((produto) => {
             return <ItensCarrinho 
-                    cartItem={produto} 
+                    produtoNoCarrinho={produto} 
                     onRemoverProdutosdoCarrinho={this.props.onRemoverProdutosdoCarrinho}
                     />
           })} 
