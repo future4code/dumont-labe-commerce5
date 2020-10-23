@@ -32,12 +32,10 @@ export default class Carrinho extends React.Component {
                     cartItem={produto} 
                     onRemoverProdutosdoCarrinho={this.props.onRemoverProdutosdoCarrinho}
                     />
-          })} 
-          <ItensCarrinho />
+            })} 
           <p>Valor total: R${this.valorTotalCompras()}</p>
         </ListaProdutosContainer>
       </CarrinhoContainer>
     );
   }
 }
-

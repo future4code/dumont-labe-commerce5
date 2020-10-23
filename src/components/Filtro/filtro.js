@@ -22,7 +22,7 @@ export default class Filtro extends React.Component {
                     <input 
                     type="number" 
                     value={this.props.filtroMinimo}
-                    onChangeFiltroMinimo={this.props.onChangeFiltroMinimo}
+                    onChange={this.props.onChangeFiltroMinimo}
                     />
                 </div>
                 <div>
@@ -30,7 +30,7 @@ export default class Filtro extends React.Component {
                     <input 
                     type="number"
                     value={this.props.filtroMaximo} 
-                    onChangeFiltroMaximo={this.props.onChangeFiltroMaximo}
+                    onChange={this.props.onChangeFiltroMaximo}
                     />
                 </div>
                 <div>
@@ -38,7 +38,7 @@ export default class Filtro extends React.Component {
                     <input 
                     type="text" 
                     value={this.props.filtroBuscar}
-                    onChangeFiltroBuscar={this.props.onChangeFiltroBuscar}
+                    onChange={this.props.onChangeFiltroBuscar}
                     />
                 </div>
             </div>

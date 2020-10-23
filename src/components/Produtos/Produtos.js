@@ -19,29 +19,38 @@ const ProdutosGrid = styled.div `
 `
 
 export default class Produtos extends React.Component {
-  pegarOrdenarEFiltrarLista = () => {
-    return this.props.produtos
-      .filter((produto) => produto.preco < this.props.filtroMinimo)
-      .filter((produto) => produto.preco > this.props.filtroMaximo)
-      .filter((produto) => produto.nome.includes(this.props.filtroBuscar))
-      .sort((a, b) => this.state.sort === "CRESCENTE" ? a.preco - b.preco : b.preco - a.preco)
+  state = {
+    sort: 'CRESCENTE'
   }
+
+  pegarOrdenarEFiltrarLista = () => {
+    console.log(this.props.filtroBuscar);
+    return this.props.produtos
+    .filter((produto) => {
+      return this.props.filtroMaximo ? produto.preco <= this.props.filtroMaximo : true
+    })
+    .filter((produto) => {
+      return this.props.filtroMinimo ? produto.preco >= this.props.filtroMinimo : true
+    })
+    .filter((produto) => produto.nome.includes(this.props.filtroBuscar))
+    .sort((a, b) => this.state.sort === "CRESCENTE" ? a.preco - b.preco : b.preco - a.preco)
+  }
+  
   onChangeSort = (event) => {
     this.setState({sort: event.target.value})
   }
-    state = {
-    sort: 'CRESCENTE'
-  }
+
   
   render (){
     const ordenarEFiltrarLista = this.pegarOrdenarEFiltrarLista()
+    console.log(ordenarEFiltrarLista);
     return (
       <ProdutosContainer>
         <ProdutosHeader>
             <p> Quantidade de Produtos: {ordenarEFiltrarLista.lenght} </p>
             <label>
               Ordenação:
-                  <select value={this.state.sort} onChange={this.onChangeSort}>
+              <select value={this.state.sort} onChange={this.onChangeSort}>
                 <option value={'CRESCENTE'}>Crescente</option>
                 <option value={'DECRESCENTE'}>Decrescente</option>
               </select>

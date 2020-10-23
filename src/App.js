@@ -7,16 +7,17 @@ import styled from 'styled-components';
 const AppContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
-  padding: 16px;
+  padding: 20px;
   gap: 8px;
 `;
+
 
 const produtos = [
   {
     id: 1,
     img: "https://i.ibb.co/jWBSVYz/camiseta-star-wars-1.jpg",
     nome: "Camiseta Star Wars",
-    preco: 50,
+    preco: 20,
   },
   {
     id: 2,
@@ -34,7 +35,7 @@ const produtos = [
     id: 4,
     img: "https://i.ibb.co/gmZ13qQ/camiseta-et-1.jpg",
     nome: "Produto 4",
-    preco: 50,
+    preco: 10,
   },
   {
     id: 5,
@@ -64,7 +65,7 @@ const produtos = [
 
 export default class App extends React.Component {
   state = {
-    filtroMinimo: "0",
+    filtroMinimo: "",
     filtroMaximo: "",
     filtroBuscar: "",
     produtosCarrinho: [],
@@ -129,7 +130,7 @@ export default class App extends React.Component {
           filtroMinimo={this.state.filtroMinimo}
           filtroMaximo={this.state.filtroMaximo}
           filtroBuscar={this.state.filtroBuscar}
-          onChangeFiltroMinimo={this.OnChangeFiltroMinimo}
+          onChangeFiltroMinimo={this.onChangeFiltroMinimo}
           onChangeFiltroMaximo={this.onChangeFiltroMaximo}
           onChangeFiltroBuscar={this.onChangeFiltroBuscar}
         />

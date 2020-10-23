@@ -16,15 +16,15 @@ const RemoverButton = styled.button `
 
 export default class ItensCarrinho extends React.Component {
   render() {
-    console.log(this.props.cartItem);
+    console.log(this.props);
     return (
       <ItemContainer>
         <p>{this.props.cartItem.quantidade}x</p>
-          <p>{this.props.cartItem.nome}</p>
-          <RemoverButton onClick={() => 
-            this.props.onRemoveProduct(this.props.cartItem.id)}>
-              Remover
-              </RemoverButton>
+        <p>{this.props.cartItem.nome}</p>
+        <RemoverButton onClick={() => 
+          this.props.onRemoveProduct(this.props.cartItem.id)}>
+            Remover
+        </RemoverButton>
       </ItemContainer>
     );
   }
