@@ -19,7 +19,7 @@ const ProdutosGrid = styled.div `
 `
 //Resolvi já colocar a função de ordenação aqui (apagar esse comentário) 
 
-export class Produtos extends React.Component {
+export default class Produtos extends React.Component {
   pegarOrdenarEFiltrarLista = () => {
     return this.props.produtos
       .filter((produto) => produto.preco < this.props.filtroMinimo)
@@ -60,4 +60,3 @@ export class Produtos extends React.Component {
     );
   }
 }
-export default Produtos;

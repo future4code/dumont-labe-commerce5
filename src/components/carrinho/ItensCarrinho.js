@@ -8,7 +8,7 @@ const ItemContainer = styled.div`
   align-items: center;
 `;
 
-class ItensCarrinho extends React.Component {
+export default class ItensCarrinho extends React.Component {
   reder() {
     return (
       <ItemContainer>
@@ -23,4 +23,3 @@ class ItensCarrinho extends React.Component {
     );
   }
 }
-export default ItensCarrinho;
