@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Produtos from "../Produtos/Produtos"
 
 const CardContainer = styled.div`
   border: 1px solid black;
@@ -26,7 +25,7 @@ export default class CardProdutos extends React.Component {
   render (){
     const produto = this.props.produto
     return <CardContainer>
-    <img src={produto.img}/>
+    <img src={produto.img} alt = {produto.nome}/>
       <CardInfo>
         <p>{produto.nome}</p>
         <p>R${produto.preco},00 </p>

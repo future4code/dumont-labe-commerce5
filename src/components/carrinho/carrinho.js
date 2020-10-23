@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import ItensCarrinho from "./ItensCarrinho";
+import ItensCarrinho from "../carrinho/ItensCarrinho";
 
 const CarrinhoContainer = styled.div`
   border: 1px solid black;
@@ -11,7 +11,7 @@ const ListaProdutosContainer = styled.div`
   gap: 4px;
 `;
 
-class Carrinho extends React.Component {
+export default class Carrinho extends React.Component {
 
    //Para somar o total de itens no carrinho
   valorTotalCompras = () => {
@@ -42,4 +42,3 @@ class Carrinho extends React.Component {
   }
 }
 
-export default Carrinho;

@@ -1,5 +1,5 @@
 import React from "react";
-import CardProdutos from "../Produtos/CardProdutos"
+import CardProdutos from "../Produtos/CardProdutos";
 import styled from "styled-components";
 
 const ProdutosContainer = styled.div`
@@ -58,4 +58,8 @@ export default class Produtos extends React.Component {
       </ProdutosContainer>
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

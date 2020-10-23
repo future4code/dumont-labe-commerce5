@@ -64,24 +64,10 @@ const produtos = [
 
 export default class App extends React.Component {
   state = {
-    filtroMinimo: "",
+    filtroMinimo: "0",
     filtroMaximo: "",
     filtroBuscar: "",
     produtosNoCarrinho: [
-      {
-      id: 4,
-      img: "https://i.ibb.co/gmZ13qQ/camiseta-et-1.jpg",
-      nome: "Produto 4",
-      preco: 50,
-      quantidade: 1
-    },
-    {
-      id: 5,
-      img: "https://i.ibb.co/M6B4SYR/camiseta-espaco-2.jpg",
-      nome: "Produto 5",
-      preco: 50,
-      quantidade: 2
-      }
     ]
   }
 
@@ -98,9 +84,9 @@ export default class App extends React.Component {
   }
   
   onAddProdutoCarrinho = (idProduto) => {
-    const produtoCarrinho = this.state.produtosNoCarrinho.find(produto => idProduto === produto.id)
+    const produtoNoCarrinho = this.state.produtosNoCarrinho.find(produto => idProduto === produto.id)
 
-    if(produtoCarrinho) {
+    if(produtoNoCarrinho) {
       const novosProdutosCarrinho = this.state.produtosNoCarrinho.map(produto => {
         if(idProduto === produto.id) {
           return {
