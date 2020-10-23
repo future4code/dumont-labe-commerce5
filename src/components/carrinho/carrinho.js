@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-
-import ItensCarrinho from "../ItensCarrinho";
+import ItensCarrinho from "../carrinho/ItensCarrinho";
 
 const CarrinhoContainer = styled.div`
   border: 1px solid black;

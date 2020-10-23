@@ -35,5 +35,3 @@ export default class CardProdutos extends React.Component {
     </CardContainer>
   }
 }
-
-export default CardProdutos;

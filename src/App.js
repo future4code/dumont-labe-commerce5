@@ -1,7 +1,7 @@
 import React from "react";
-import Filtro from "./components/Filtro/Filtro";
+import Filtro from "./components/Filtro/filtro";
 import Produtos from "./components/Produtos/Produtos"
-import Carrinho from "./components/carrinho";
+import Carrinho from "./components/carrinho/carrinho";
 import styled from 'styled-components';
 
 const AppContainer = styled.div`
