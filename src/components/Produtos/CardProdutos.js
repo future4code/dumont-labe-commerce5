@@ -22,7 +22,7 @@ const BotaoAddCarrinho = styled.button`
   align-self: center;
 `
 
-export class CardProdutos extends React.Component {
+export default class CardProdutos extends React.Component {
   render (){
     const produto = this.props.produto
     return <CardContainer>
@@ -30,7 +30,7 @@ export class CardProdutos extends React.Component {
       <CardInfo>
         <p>{produto.nome}</p>
         <p>R${produto.preco},00 </p>
-        <BotaoAddCarrinho> Adicionar ao carrinho </BotaoAddCarrinho>
+        <BotaoAddCarrinho onClick={() => this.props.onAddProdutoCarrinho(produto.id)}> Adicionar ao carrinho </BotaoAddCarrinho>
       </CardInfo>
     </CardContainer>
   }

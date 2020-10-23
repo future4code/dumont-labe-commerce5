@@ -17,28 +17,47 @@ const ProdutosGrid = styled.div `
   gap: 16px;
   padding: 16px;
 `
+//Resolvi já colocar a função de ordenação aqui (apagar esse comentário) 
 
 export class Produtos extends React.Component {
+  pegarOrdenarEFiltrarLista = () => {
+    return this.props.produtos
+      .filter((produto) => produto.preco < this.props.filtroMinimo)
+      .filter((produto) => produto.preco > this.props.filtroMaximo)
+      .filter((produto) => produto.nome.includes(this.props.filtroBuscar) < this.props.maxValue)
+      .sort((a, b) => this.state.sort === "CRESCENTE" ? a.produto - b.produto : b.produto - a.produto)
+  }
+  onChangeSort = (event) => {
+    this.setState({sort: event.target.value})
+  }
+    state = {
+    sort: 'CRESCENTE'
+  }
+  
   render (){
-  return (
-    <ProdutosContainer>
-      <ProdutosHeader>
-          <p> Quantidade de Produtos: 8 </p>
-          <label>
-            Ordenação:
-                <select>
-              <option>Crescente</option>
-              <option>Decrescente</option>
-            </select>
-          </label>
-        </ProdutosHeader>
-        <ProdutosGrid>
-          {this.props.produtos.map((produto) => {
-            return <CardProdutos produto={produto}/>
-          })}
-        </ProdutosGrid>
-    </ProdutosContainer>
-  );
-}
+    const ordenarEFiltrarLista = this.pegarOrdenarEFiltrarLista()
+    return (
+      <ProdutosContainer>
+        <ProdutosHeader>
+            <p> Quantidade de Produtos: {ordenarEFiltrarLista.lenght} </p>
+            <label>
+              Ordenação:
+                  <select value={this.state.sort} onChange={this.onChangeSort}>
+                <option value={'CRESCENTE'}>Crescente</option>
+                <option value={'DECRESCENTE'}>Decrescente</option>
+              </select>
+            </label>
+          </ProdutosHeader>
+          <ProdutosGrid>
+            {ordenarEFiltrarLista.map((produto) => {
+              return <CardProdutos 
+              produto={produto}
+              onAddProdutoCarrinho = {this.props.onAddProdutoCarrinho}
+              />
+            })}
+          </ProdutosGrid>
+      </ProdutosContainer>
+    );
+  }
 }
 export default Produtos;
