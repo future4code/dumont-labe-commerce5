@@ -1,5 +1,5 @@
 import React from "react";
-import { CardProdutos } from "./CardProdutos";
+import CardProdutos from "./CardProdutos";
 import styled from "styled-components";
 
 const ProdutosContainer = styled.div`
@@ -17,9 +17,8 @@ const ProdutosGrid = styled.div `
   gap: 16px;
   padding: 16px;
 `
-//Resolvi já colocar a função de ordenação aqui (apagar esse comentário) 
 
-export class Produtos extends React.Component {
+export default class Produtos extends React.Component {
   pegarOrdenarEFiltrarLista = () => {
     return this.props.produtos
       .filter((produto) => produto.preco < this.props.filtroMinimo)
@@ -60,4 +59,3 @@ export class Produtos extends React.Component {
     );
   }
 }
-export default Produtos;
