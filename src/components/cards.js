@@ -1,12 +1,12 @@
-import react from 'react';
-import style from styled-components;
+import React from 'react';
+import style from 'styled-components';
 
 
 class Cards extends React.Component {
     render(){
         return(
-            <Grid>
-            </Grid>
+             <Grid>
+             </Grid>
         )
     }
 }
