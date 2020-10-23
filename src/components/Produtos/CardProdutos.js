@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Produtos } from "./Produtos";
+import Produtos from "../Produtos/Produtos"
 
 const CardContainer = styled.div`
   border: 1px solid black;
@@ -35,5 +35,3 @@ export default class CardProdutos extends React.Component {
     </CardContainer>
   }
 }
-
-export default CardProdutos;
