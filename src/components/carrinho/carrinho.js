@@ -4,11 +4,17 @@ import ItensCarrinho from "./ItensCarrinho";
 
 const CarrinhoContainer = styled.div`
   border: 1px solid black;
+  padding: 8px;
 `;
 
 const ListaProdutosContainer = styled.div`
   display: grid;
   gap: 4px;
+`;
+
+const Titulo = styled.h3`
+ font-size: 1.5em;
+ text-align: center;
 `;
 
 export default class Carrinho extends React.Component {
@@ -25,19 +31,17 @@ export default class Carrinho extends React.Component {
   render() {
     return (
       <CarrinhoContainer>
-        <h3>Carrinho:</h3>
+        <Titulo>Carrinho:</Titulo>
         <ListaProdutosContainer>
            {this.props.produtosCarrinho.map((produto) => {
             return <ItensCarrinho 
                     cartItem={produto} 
                     onRemoverProdutosdoCarrinho={this.props.onRemoverProdutosdoCarrinho}
                     />
-          })} 
-          <ItensCarrinho />
+            })} 
           <p>Valor total: R${this.valorTotalCompras()}</p>
         </ListaProdutosContainer>
       </CarrinhoContainer>
     );
   }
 }
-
