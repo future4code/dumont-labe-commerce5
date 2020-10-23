@@ -16,6 +16,7 @@ const RemoverButton = styled.button `
 
 export default class ItensCarrinho extends React.Component {
   render() {
+    console.log(this.props.cartItem);
     return (
       <ItemContainer>
         <p>{this.props.cartItem.quantidade}x</p>
