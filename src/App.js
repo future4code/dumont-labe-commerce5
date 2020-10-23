@@ -62,12 +62,73 @@ const produtos = [
   },
 ];
 
-export default function App() {
-  return (
-    <AppContainer>
-      <Filtro />
-      <Produtos produtos={produtos} />
-      <Carrinho />
-    </AppContainer>
-  );
+export default class App extends React.Component {
+  state = {
+    filtroMinimo: "",
+    filtroMaximo: "",
+    filtroBuscar: "",
+    produtosNoCarrinho: ""
+  }
+
+  onChangeFiltroMinimo = (event) => {
+    this.setState({filtroMinimo: event.target.value});    
+  }
+
+  onChangeFiltroMaximo = (event) => {
+    this.setState({filtroMaximo: event.target.value});   
+  }
+
+  onChangeFiltroBuscar = (event) => {
+    this.setState({filtroBuscar: event.target.value});    
+  }
+  
+  onAddProdutoCarrinho = (idProduto) => {
+    const produtoCarrinho = this.state.produtosNoCarrinho.find(produto => idProduto === produto.id)
+
+    if(produtoCarrinho) {
+      const novosProdutosCarrinho = this.state.produtosNoCarrinho.map(produto => {
+        if(idProduto === produto.id) {
+          return {
+            ...produto,
+            quantidade: produto.quantidade + 1
+          }
+        }
+
+        return produto;
+    })
+
+    this.setState({produtosNoCarrinho: novoProdutoCarrinho})
+  } else {
+    const totalProdutoCarrinho = produtos.find(produto => idProduto === produto.id)
+
+    const novosProdutosCarrinho = [...this.state.produtosNoCarrinho, {...this.onAddProdutoCarrinho, quantidade: 1}]
+
+    this.setState({produtosNoCarrinho: novosProdutosCarrinho})
+  }
+}
+
+  render() {
+    return (
+      <AppContainer>
+        <Filtro 
+          filtroMinimo={this.state.filtroMinimo}
+          filtroMaximo={this.state.filtroMaximo}
+          filtroBuscar={this.state.filtroBuscar}
+          onChangeFiltroMinimo={this.OnChangeFiltroMinimo}
+          onChangeFiltroMaximo={this.onChangeFiltroMaximo}
+          onChangeFiltroBuscar={this.onChangeFiltroBuscar}
+        />
+        <Produtos 
+          produtos={produtos} 
+          filtroMinimo={this.state.filtroMinimo}
+          filtroMaximo={this.state.filtroMaximo}
+          filtroBuscar={this.state.filtroBuscar}
+          onAddProdutoCarrinho={this.onAddProdutoCarrinho}
+        />
+        <Carrinho
+          produtosNoCarrinho={this.state.produtosNoCarrinho}
+        />
+      </AppContainer>
+    );
+  }
 }
