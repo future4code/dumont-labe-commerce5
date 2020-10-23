@@ -67,9 +67,9 @@ export default class App extends React.Component {
     filtroMinimo: "0",
     filtroMaximo: "",
     filtroBuscar: "",
-    produtosNoCarrinho: [
-    ]
-  }
+    produtosCarrinho: [],
+    listaDeProdutos: produtos
+  };
 
   onChangeFiltroMinimo = (event) => {
     this.setState({filtroMinimo: event.target.value});    
@@ -84,10 +84,10 @@ export default class App extends React.Component {
   }
   
   onAddProdutoCarrinho = (idProduto) => {
-    const produtoNoCarrinho = this.state.produtosNoCarrinho.find(produto => idProduto === produto.id)
+    const produtoNoCarrinho = this.state.produtosCarrinho.find(produto => idProduto === produto.id)
 
     if(produtoNoCarrinho) {
-      const novosProdutosCarrinho = this.state.produtosNoCarrinho.map(produto => {
+      const novosProdutosCarrinho = this.state.produtosCarrinho.map(produto => {
         if(idProduto === produto.id) {
           return {
             ...produto,
@@ -98,27 +98,28 @@ export default class App extends React.Component {
         return produto;
     })
 
-    this.setState({produtosNoCarrinho: novosProdutosCarrinho})
+    this.setState({produtosCarrinho: novosProdutosCarrinho})
   } else {
     const totalProdutoCarrinho = produtos.find(produto => idProduto === produto.id)
 
-    const novosProdutosCarrinho = [...this.state.produtosNoCarrinho, {...totalProdutoCarrinho, quantidade: 1}]
+    const novosProdutosCarrinho = [...this.state.produtosCarrinho, 
+      {...totalProdutoCarrinho, quantidade: 1}]
 
-    this.setState({produtosNoCarrinho: novosProdutosCarrinho})
+    this.setState({produtosCarrinho: novosProdutosCarrinho})
   }
 }
 
   onRemoverProdutosdoCarrinho = (idProduto) => {
-    const novosProdutosNoCarrinho = this.state.produtosNoCarrinho.map((produto) => {
+    const novosProdutosNoCarrinho = this.state.produtosCarrinho.map((produto) => {
       if(produto.id ===  idProduto) {
         return {
           ...produto,
-          quantidade: produto.quantidade -1
+          quantidade: produto.quantidade - 1,
         }
       }
       return produto
-    }).filter((produto)=> produto.quantidade >0)
-    this.setState({produtosNoCarrinho: novosProdutosNoCarrinho})
+    }).filter((produto)=> produto.quantidade > 0);
+    this.setState({produtosCarrinho: novosProdutosNoCarrinho})
   }
 
   render() {
@@ -140,7 +141,7 @@ export default class App extends React.Component {
           onAddProdutoCarrinho={this.onAddProdutoCarrinho}
         />
         <Carrinho
-          produtosNoCarrinho={this.state.produtosNoCarrinho}
+          produtosCarrinho={this.state.produtosCarrinho}
           onRemoverProdutosdoCarrinho={this.onRemoverProdutosdoCarrinho}
         />
       </AppContainer>
