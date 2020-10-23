@@ -24,7 +24,6 @@ export default class Produtos extends React.Component {
   }
 
   pegarOrdenarEFiltrarLista = () => {
-    console.log(this.props.filtroBuscar);
     return this.props.produtos
     .filter((produto) => {
       return this.props.filtroMaximo ? produto.preco <= this.props.filtroMaximo : true
@@ -43,11 +42,10 @@ export default class Produtos extends React.Component {
   
   render (){
     const ordenarEFiltrarLista = this.pegarOrdenarEFiltrarLista()
-    console.log(ordenarEFiltrarLista);
     return (
       <ProdutosContainer>
         <ProdutosHeader>
-            <p> Quantidade de Produtos: {ordenarEFiltrarLista.lenght} </p>
+            <p> Quantidade de Produtos: {ordenarEFiltrarLista.length} </p>
             <label>
               Ordenação:
               <select value={this.state.sort} onChange={this.onChangeSort}>
